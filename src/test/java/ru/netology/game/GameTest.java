@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
     Game game = new Game();
-    Player player1 = new Player(1,"Ivan", 10);
-    Player player2 = new Player(2,"Alex", 10);
-    Player player3 = new Player(3,"Max", 5);
-    Player player4 = new Player(4,"Anton", 20);
-    Player player5 = new Player(5,"Ivan", 25);
+    Player player1 = new Player(1, "Ivan", 10);
+    Player player2 = new Player(2, "Alex", 10);
+    Player player3 = new Player(3, "Max", 5);
+    Player player4 = new Player(4, "Anton", 20);
+    Player player5 = new Player(5, "Ivan", 25);
 
     @Test
     void roundBothPlayersHaveEqualStrength() {
@@ -48,7 +48,7 @@ class GameTest {
 
     @Test
     void roundBothPlayersNotRegistered() {
-        Assertions.assertThrows(NotRegisteredException.class, () ->{
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Roman", "Petya");
         });
     }
@@ -56,7 +56,7 @@ class GameTest {
     @Test
     void roundFirstPlayerNotRegistered() {
         game.register(player2);
-        Assertions.assertThrows(NotRegisteredException.class, () ->{
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Roman", "Alex");
         });
     }
@@ -64,14 +64,15 @@ class GameTest {
     @Test
     void roundSecondPlayerNotRegistered() {
         game.register(player3);
-        Assertions.assertThrows(NotRegisteredException.class, () ->{
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Max", "Roman");
         });
     }
+
     @Test
     void roundPlayerHasExistName() {
         game.register(player1);
-        Assertions.assertThrows(NotRegisteredException.class, () ->{
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.register(player5);
         });
     }
